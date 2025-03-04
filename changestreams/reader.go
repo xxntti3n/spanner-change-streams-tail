@@ -276,7 +276,7 @@ func (r *Reader) startRead(ctx context.Context, partitionToken string, startTime
 	}
 
 	r.markStateFinished(partitionToken)
-
+	fmt.Printf("Child partitions: %v\n", childPartitionRecords)
 	for _, childPartitionsRecord := range childPartitionRecords {
 		// childStartTimestamp is always later than r.startTimestamp.
 		childStartTimestamp := childPartitionsRecord.StartTimestamp
